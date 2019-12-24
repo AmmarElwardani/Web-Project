@@ -72,11 +72,10 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'status' => $status,
         ]);
-
-        if ($status === 0) {
+        if ($status === "0") {
             \Log::debug("assign role etudiant");
             $user->assignRole('etudiant');
-        } else if ($status === 1) {
+        } else if ($status === "1") {
             \Log::debug("assign role entreprise");
             $user->assignRole('entreprise');
         }

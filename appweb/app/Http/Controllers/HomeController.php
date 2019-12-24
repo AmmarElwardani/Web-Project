@@ -27,10 +27,15 @@ class HomeController extends Controller
     {
 
         $user = Auth::user();
-        \Log::debug($user->getRoleNames());
+        // \Log::debug($user->getRoleNames());
 
-        \Log::debug("111111");
+        $role = $user->getRoleNames()[0];
+        if ($role === "enterprise") {
+            
+        } else if ($role == "etudiant") {
+            
+        }
         return view('home', 
-            ['role' => 'ss']);
+                    ['role' => $role]);
     }
 }
